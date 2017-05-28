@@ -289,12 +289,14 @@ static NSMenuItem* OakCreateIndentMenuItem (NSString* title, SEL action, id targ
 	_recordingMacro = flag;
 	if(_recordingMacro)
 	{
+        [self.macroRecordingButton setImage:[NSImage imageNamed:@"Recording Running" inSameBundleAsClass:[self class]]];
 		self.recordingTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(updateMacroRecordingAnimation:) userInfo:nil repeats:YES];
 	}
 	else
 	{
 		self.recordingTimer = nil;
 		_recordingTime = 0;
+        [self.macroRecordingButton setImage:[NSImage imageNamed:@"Recording" inSameBundleAsClass:[self class]]];
 		[self updateMacroRecordingAnimation:nil];
 	}
 }
